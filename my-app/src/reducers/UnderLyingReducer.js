@@ -19,7 +19,7 @@ const UnderLyingReducer = (state = initialState, action) => {
             return (state = {
                 ...state,
                 underLyingListLoading: false,
-                underLyingList: action.payload.data,
+                underLyingList: action.payload,
             });
         }
 
