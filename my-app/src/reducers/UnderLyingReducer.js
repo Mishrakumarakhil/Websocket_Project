@@ -15,7 +15,6 @@ const UnderLyingReducer = (state = initialState, action) => {
             });
         }
         case "FETCH_UNDERLYING_LIST_FULFILLED": {
-            console.log("first", action);
             return (state = {
                 ...state,
                 underLyingListLoading: false,

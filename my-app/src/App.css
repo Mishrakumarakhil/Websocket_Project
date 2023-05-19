@@ -8,3 +8,6 @@ button {
     cursor: pointer;
     margin-left: 5px;
 }
+.back {
+    cursor: pointer;
+}
