@@ -1,18 +1,26 @@
 import axios from "axios";
+
 export const fetchUnderLyingList = () => {
-    let url = `https://prototype.sbulltech.com/api/underlyings`;
-    let res = axios({
-        method: "get",
-        url,
-    })
-        .then((res) => {
-            return res.data;
+    return (dispatch) => {
+        let url = `https://prototype.sbulltech.com/api/underlyings`;
+
+        axios({
+            method: "get",
+            url,
         })
-        .catch((err) => {
-            return err;
-        });
-    return {
-        type: "FETCH_UNDERLYING_LIST",
-        payload: res,
+            .then((res) => {
+                dispatch({
+                    type: "FETCH_UNDERLYING_LIST_FULFILLED",
+                    payload: res.data,
+                });
+            })
+            .catch((err) => {
+                dispatch({
+                    type: "FETCH_UNDERLYING_LIST_REJECTED",
+                    error: err.err_msg,
+                });
+            });
+
+       
     };
 };
