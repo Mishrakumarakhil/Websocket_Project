@@ -16,6 +16,13 @@ const Derivatives = () => {
 
     useEffect(() => {
         dispatch(fetchDerivativeList(param.id));
+
+        //Poll Derivatives api every 30 seconds.
+        let dataPolling = setInterval(() => {
+            dispatch(fetchDerivativeList(param.id));
+        }, 30000);
+
+        
     }, []);
 
     return (

@@ -14,6 +14,11 @@ const UnderLying = () => {
 
     useEffect(() => {
         dispatch(fetchUnderLyingList());
+
+        //Poll UnderLying api every 10 minutes.
+        let dataPolling = setInterval(() => {
+            dispatch(fetchUnderLyingList());
+        }, 600000);
     }, []);
 
     const onClickHandler = (token) => {
