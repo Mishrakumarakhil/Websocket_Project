@@ -22,7 +22,10 @@ const Derivatives = () => {
             dispatch(fetchDerivativeList(param.id));
         }, 30000);
 
-        
+        //Unmount Interval
+        return () => {
+            clearInterval(dataPolling);
+        };
     }, []);
 
     return (

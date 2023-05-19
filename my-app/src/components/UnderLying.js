@@ -19,6 +19,11 @@ const UnderLying = () => {
         let dataPolling = setInterval(() => {
             dispatch(fetchUnderLyingList());
         }, 600000);
+
+        //Unmount Interval
+        return () => {
+            clearInterval(dataPolling);
+        };
     }, []);
 
     const onClickHandler = (token) => {
