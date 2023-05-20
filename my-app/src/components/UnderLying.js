@@ -32,10 +32,12 @@ const UnderLying = () => {
     });
 
     useEffect(() => {
+        console.log("firsthello")
         dispatch(fetchUnderLyingList());
 
         //Poll UnderLying api every 10 minutes.
         let dataPolling = setInterval(() => {
+            console.log("firsthello")
             unSubscribe(underLyingList, sendJsonMessage);
             dispatch(fetchUnderLyingList());
         }, 600000);
