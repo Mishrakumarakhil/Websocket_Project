@@ -18,7 +18,7 @@ const DerivativeReducer = (state = initialState, action) => {
             return (state = {
                 ...state,
                 derivativeListLoading: false,
-                derivativeList: action.payload,
+                derivativeList: action.payload.payload,
             });
         }
 

@@ -38,9 +38,9 @@ const Derivatives = () => {
             {errorMessage
                 ? errorMessage
                 : !derivativeListLoading
-                ? derivativeList.payload.map((val, index) => (
+                ? derivativeList.map((val, index) => (
                       <div key={"derivative" + index}>
-                          {val.symbol}: {val.token}
+                          {val.symbol}:{val.price ? val.price.toFixed(2) : "Loading..."}
                       </div>
                   ))
                 : "Loading Data..."}
