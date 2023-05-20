@@ -13,8 +13,6 @@ const UnderLying = () => {
         return [state.UnderLyingReducer.underLyingListLoading, state.UnderLyingReducer.underLyingList, state.UnderLyingReducer.errorMessage];
     });
 
-    // console.log("firstlll", underLyingListLoading, underLyingList, errorMessage);
-
     let socketURL = `wss://prototype.sbulltech.com/api/ws`;
     const { sendJsonMessage, getWebSocket } = useWebSocket(socketURL, {
         onOpen: () => console.log("Socket connection open."),
@@ -32,12 +30,10 @@ const UnderLying = () => {
     });
 
     useEffect(() => {
-        console.log("firsthello")
         dispatch(fetchUnderLyingList());
 
         //Poll UnderLying api every 10 minutes.
         let dataPolling = setInterval(() => {
-            console.log("firsthello")
             unSubscribe(underLyingList, sendJsonMessage);
             dispatch(fetchUnderLyingList());
         }, 600000);

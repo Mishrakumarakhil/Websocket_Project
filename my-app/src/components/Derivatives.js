@@ -22,7 +22,6 @@ const Derivatives = () => {
         onClose: () => console.log("WebSocket connection closed."),
         shouldReconnect: (closeEvent) => true,
         onMessage: (event) => {
-            console.log("first", event);
             const response = JSON.parse(event.data);
             if (response.data_type === "quote") {
                 let findObj = derivativeList.find((val) => val.token === response.payload.token);

@@ -1,5 +1,4 @@
 export const unSubscribe = (list, func) => {
-    console.log("firstddd", list);
     let tokens = list.map((val) => val.token);
     let unSubscribeMessage = {
         msg_command: "unsubscribe",
